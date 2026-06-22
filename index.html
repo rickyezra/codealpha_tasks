@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LUXE Gallery - Premium Photography Collection</title>
+  <meta name="description" content="LUXE Gallery is a premium luxury photography portfolio with cinematic motion, dark glassmorphism design, and immersive gallery interactions." />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%23090909'/%3E%3Ccircle cx='32' cy='32' r='21' fill='none' stroke='%23e1c57d' stroke-width='2'/%3E%3Cpath d='M22 40V24h4v12h12v4H22z' fill='%23e1c57d'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader__ring"></div>
+    <span>LUXE Gallery</span>
+  </div>
+
+  <div class="noise"></div>
+  <div class="gold-gradient"></div>
+  <div class="particle-field" id="particleField" aria-hidden="true"></div>
+
+  <header class="hero" id="hero">
+    <nav class="navbar glass reveal">
+      <a class="brand" href="#hero" aria-label="LUXE Gallery home">
+        <span class="brand__mark">L</span>
+        <span class="brand__text">
+          <strong>LUXE</strong>
+          Gallery
+        </span>
+      </a>
+
+      <div class="navlinks">
+        <a href="#gallery">Collection</a>
+        <a href="#about">About</a>
+        <a href="#footer">Contact</a>
+      </div>
+
+      <div class="nav-actions">
+        <label class="searchbox" aria-label="Search images">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10.5 4a6.5 6.5 0 1 0 4.09 11.56l4.42 4.42 1.41-1.41-4.42-4.42A6.5 6.5 0 0 0 10.5 4Zm0 2a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9Z"/></svg>
+          <input id="searchInput" type="search" placeholder="Search collection" autocomplete="off" />
+        </label>
+        <button class="icon-btn" id="themeToggle" type="button" aria-label="Toggle theme">
+          <span class="icon-btn__glyph">◐</span>
+        </button>
+      </div>
+    </nav>
+
+    <section class="hero__content">
+      <div class="hero__copy reveal">
+        <p class="eyebrow">Premium Photography Collection</p>
+        <h1>
+          <span class="hero__title-mark">LUXE</span>
+          <span class="hero__title-line">Capturing Excellence Through Every Frame</span>
+        </h1>
+        <p class="hero__lead">
+          A cinematic portfolio inspired by Rolls Royce, Bentley, Rolex, Apple, and Vogue aesthetics.
+          Curated for timeless luxury, motion, and visual depth.
+        </p>
+
+        <div class="hero__stats">
+          <div>
+            <strong id="visibleCount">12</strong>
+            <span>Curated frames</span>
+          </div>
+          <div>
+            <strong>4K</strong>
+            <span>Luxury detail</span>
+          </div>
+          <div>
+            <strong>360°</strong>
+            <span>Immersive motion</span>
+          </div>
+        </div>
+
+        <div class="hero__actions">
+          <a class="btn btn--gold" href="#gallery">Explore Collection</a>
+          <a class="btn btn--ghost" href="#about">Discover Story</a>
+        </div>
+      </div>
+
+      <div class="hero__visual reveal" data-parallax="0.18">
+        <div class="hero-card glass">
+          <div class="hero-card__badge">Signature Frame</div>
+          <img src="https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=1400&q=80" alt="Luxury car in dramatic lighting" />
+          <div class="hero-card__overlay">
+            <span>Rolls Royce Editorial</span>
+            <strong>Midnight Elegance</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+  </header>
+
+  <main>
+    <section class="controls reveal" id="gallery">
+      <div class="section-heading">
+        <p class="eyebrow">Collection</p>
+        <h2>Curated luxury imagery</h2>
+      </div>
+
+      <div class="filter-row">
+        <div class="filters" id="filters" role="tablist" aria-label="Gallery categories"></div>
+        <div class="gallery-meta">
+          <span id="resultText">12 images</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="gallery-shell reveal" aria-live="polite">
+      <div class="gallery" id="galleryGrid"></div>
+    </section>
+
+    <section class="about reveal" id="about">
+      <div class="about__card glass">
+        <p class="eyebrow">Luxury Direction</p>
+        <h2>Designed like a high-end editorial portfolio.</h2>
+        <p>
+          Soft reflections, cinematic contrast, and precise spacing shape a refined browsing experience.
+          Every interaction is built to feel premium, deliberate, and smooth.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer glass reveal" id="footer">
+    <div>
+      <p class="eyebrow">LUXE Gallery</p>
+      <h2>Luxury photography, curated with intent.</h2>
+    </div>
+    <p>Crafted for modern editorial presentation with cinematic motion and a premium dark aesthetic.</p>
+  </footer>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Image preview">
+    <div class="lightbox__backdrop" data-close-lightbox></div>
+    <div class="lightbox__panel glass">
+      <button class="icon-btn lightbox__close" type="button" data-close-lightbox aria-label="Close preview">×</button>
+      <button class="lightbox__nav lightbox__prev" type="button" id="prevBtn" aria-label="Previous image">‹</button>
+      <button class="lightbox__nav lightbox__next" type="button" id="nextBtn" aria-label="Next image">›</button>
+
+      <div class="lightbox__media">
+        <img id="lightboxImage" alt="" />
+      </div>
+
+      <div class="lightbox__info">
+        <div>
+          <p class="eyebrow" id="lightboxCategory">Category</p>
+          <h3 id="lightboxTitle">Image Title</h3>
+          <p id="lightboxDescription"></p>
+        </div>
+        <div class="lightbox__actions">
+          <button class="btn btn--ghost" type="button" id="downloadBtn">Download</button>
+          <button class="btn btn--gold" type="button" id="favoriteBtn">Favorite</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
