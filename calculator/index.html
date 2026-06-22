@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXUS CALCULATOR v7.9 | Sci-Fi Computing System</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="stars"></div>
+<div class="grid-bg"></div>
+
+<div class="calculator">
+    <div class="scanner-line"></div>
+    
+    <div class="header">
+        <div class="title-box">
+            <span class="system-label">◆ NEXUS CALC v7.9 ◆</span>
+            <div class="signal-indicator">
+                <div class="pulse"></div>
+                <span>ONLINE</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="display-container">
+        <div class="display-frame">
+            <div class="display-glow"></div>
+            <input type="text" id="result" readonly>
+            <div class="display-scanlines"></div>
+        </div>
+    </div>
+
+    <div class="buttons">
+        <button class="btn-reset" onclick="clearDisplay()">⊘ CLEAR</button>
+        <button class="btn-delete" onclick="deleteLast()">⌫ DEL</button>
+        <button class="btn-special" onclick="appendValue('%')">%</button>
+        <button class="operator" onclick="appendValue('/')" data-op="divide">÷</button>
+
+        <button onclick="appendValue('7')">7</button>
+        <button onclick="appendValue('8')">8</button>
+        <button onclick="appendValue('9')">9</button>
+        <button class="operator" onclick="appendValue('*')" data-op="multiply">×</button>
+
+        <button onclick="appendValue('4')">4</button>
+        <button onclick="appendValue('5')">5</button>
+        <button onclick="appendValue('6')">6</button>
+        <button class="operator" onclick="appendValue('-')" data-op="subtract">−</button>
+
+        <button onclick="appendValue('1')">1</button>
+        <button onclick="appendValue('2')">2</button>
+        <button onclick="appendValue('3')">3</button>
+        <button class="operator" onclick="appendValue('+')" data-op="add">+</button>
+
+        <button class="btn-zero" onclick="appendValue('0')">0</button>
+        <button class="btn-decimal" onclick="appendValue('.')" data-dot="true">•</button>
+        <button class="btn-equals" onclick="calculate()" data-op="equals">=</button>
+    </div>
+
+    <div class="status-bar">
+        <span class="status-text">⬤ PROCESSING...</span>
+    </div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
